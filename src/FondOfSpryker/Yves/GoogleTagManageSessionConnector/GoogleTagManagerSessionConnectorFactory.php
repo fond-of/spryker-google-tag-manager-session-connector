@@ -2,6 +2,7 @@
 
 namespace FondOfSpryker\Yves\GoogleTagManagerSessionConnector;
 
+use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Dependency\GoogleTagManagerSessionConnectorToSessionClientInterface;
 use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Model\GoogleTagManagerSessionConnectorModel;
 use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Model\GoogleTagManagerSessionConnectorModelInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
@@ -17,7 +18,7 @@ class GoogleTagManagerSessionConnectorFactory extends AbstractFactory
     }
 
     /**
-     * @return GoogleTagManagerSessionConnectorToSessionClientInterface
+     * @return \FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Dependency\GoogleTagManagerSessionConnectorToSessionClientInterface
      */
     public function getSessionClient(): GoogleTagManagerSessionConnectorToSessionClientInterface
     {
