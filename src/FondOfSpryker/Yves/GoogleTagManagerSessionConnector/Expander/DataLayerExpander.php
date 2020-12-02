@@ -5,7 +5,7 @@ namespace FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander;
 use FondOfSpryker\Shared\GoogleTagManagerSessionConnector\GoogleTagManagerSessionConnectorConstants;
 use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Dependency\GoogleTagManagerSessionConnectorToSessionClientInterface;
 
-class SessionDataLayerExpander implements SessionDataLayerExpanderInterface
+class DataLayerExpander implements DataLayerExpanderInterface
 {
     /**
      * @var \FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Dependency\GoogleTagManagerSessionConnectorToSessionClientInterface
@@ -29,16 +29,8 @@ class SessionDataLayerExpander implements SessionDataLayerExpanderInterface
      */
     public function expand(string $page, array $twigVariableBag, array $dataLayer): array
     {
-        $dataLayer[GoogleTagManagerSessionConnectorConstants::FIELD_TRANSACTION_ID] = $this->getSessionId();
+        $dataLayer[GoogleTagManagerSessionConnectorConstants::FIELD_TRANSACTION_ID] = $this->sessionClient->getId();
 
         return $dataLayer;
-    }
-
-    /**
-     * @return string
-     */
-    protected function getSessionId(): string
-    {
-        return $this->sessionClient->getId();
     }
 }

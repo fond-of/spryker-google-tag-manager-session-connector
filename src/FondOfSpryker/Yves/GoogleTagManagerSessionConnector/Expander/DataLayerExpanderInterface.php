@@ -2,7 +2,7 @@
 
 namespace FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander;
 
-interface SessionDataLayerExpanderInterface
+interface DataLayerExpanderInterface
 {
     /**
      * @param string $page

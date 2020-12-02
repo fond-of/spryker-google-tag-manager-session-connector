@@ -8,7 +8,7 @@ use Spryker\Yves\Kernel\AbstractPlugin;
 /**
  * @method \FondOfSpryker\Yves\GoogleTagManagerSessionConnector\GoogleTagManagerSessionConnectorFactory getFactory()
  */
-class SessionDataLayerExpanderPluginExpanderPlugin extends AbstractPlugin implements GoogleTagManagerDataLayerExpanderPluginInterface
+class SessionDataLayerExpanderPlugin extends AbstractPlugin implements GoogleTagManagerDataLayerExpanderPluginInterface
 {
     /**
      * @param string $pageType
@@ -31,7 +31,7 @@ class SessionDataLayerExpanderPluginExpanderPlugin extends AbstractPlugin implem
     public function expand(string $page, array $twigVariableBag, array $dataLayer): array
     {
         return $this->getFactory()
-            ->createSessionDataLayerExpander()
+            ->createDataLayerExpander()
             ->expand($page, $twigVariableBag, $dataLayer);
     }
 }

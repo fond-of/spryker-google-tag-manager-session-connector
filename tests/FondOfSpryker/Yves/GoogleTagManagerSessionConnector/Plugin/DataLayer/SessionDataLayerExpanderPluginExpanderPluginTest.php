@@ -4,7 +4,7 @@ namespace FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Plugin\DataLayer;
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Shared\GoogleTagManagerSessionConnector\GoogleTagManagerSessionConnectorConstants;
-use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\SessionDataLayerExpanderInterface;
+use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\DataLayerExpanderInterface;
 use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\GoogleTagManagerSessionConnectorFactory;
 
 class SessionDataLayerExpanderPluginExpanderPluginTest extends Unit
@@ -15,7 +15,7 @@ class SessionDataLayerExpanderPluginExpanderPluginTest extends Unit
     protected $factoryMock;
 
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject|\FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\SessionDataLayerExpanderInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|\FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\DataLayerExpanderInterface
      */
     protected $sessionDataLayerExpanderMock;
 
@@ -33,11 +33,11 @@ class SessionDataLayerExpanderPluginExpanderPluginTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->sessionDataLayerExpanderMock = $this->getMockBuilder(SessionDataLayerExpanderInterface::class)
+        $this->sessionDataLayerExpanderMock = $this->getMockBuilder(DataLayerExpanderInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->plugin = new SessionDataLayerExpanderPluginExpanderPlugin();
+        $this->plugin = new SessionDataLayerExpanderPlugin();
         $this->plugin->setFactory($this->factoryMock);
     }
 

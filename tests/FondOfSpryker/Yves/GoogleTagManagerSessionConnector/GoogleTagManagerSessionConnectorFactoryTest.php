@@ -4,7 +4,7 @@ namespace FondOfSpryker\Yves\GoogleTagManagerSessionConnector;
 
 use Codeception\Test\Unit;
 use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Dependency\GoogleTagManagerSessionConnectorToSessionClientInterface;
-use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\SessionDataLayerExpanderInterface;
+use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\DataLayerExpanderInterface;
 use Spryker\Yves\Kernel\Container;
 
 class GoogleTagManagerSessionConnectorFactoryTest extends Unit
@@ -43,7 +43,7 @@ class GoogleTagManagerSessionConnectorFactoryTest extends Unit
     /**
      * @return void
      */
-    public function testCreateSessionDataLayerExpander(): void
+    public function testCreateDataLayerExpander(): void
     {
         $this->containerMock->expects($this->atLeastOnce())
             ->method('has')
@@ -54,8 +54,8 @@ class GoogleTagManagerSessionConnectorFactoryTest extends Unit
             ->willReturn($this->sessionClientMock);
 
         $this->assertInstanceOf(
-            SessionDataLayerExpanderInterface::class,
-            $this->factory->createSessionDataLayerExpander()
+            DataLayerExpanderInterface::class,
+            $this->factory->createDataLayerExpander()
         );
     }
 

@@ -3,18 +3,18 @@
 namespace FondOfSpryker\Yves\GoogleTagManagerSessionConnector;
 
 use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Dependency\GoogleTagManagerSessionConnectorToSessionClientInterface;
-use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\SessionDataLayerExpander;
-use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\SessionDataLayerExpanderInterface;
+use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\DataLayerExpander;
+use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\DataLayerExpanderInterface;
 use Spryker\Yves\Kernel\AbstractFactory;
 
 class GoogleTagManagerSessionConnectorFactory extends AbstractFactory
 {
     /**
-     * @return \FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\SessionDataLayerExpanderInterface
+     * @return \FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander\DataLayerExpanderInterface
      */
-    public function createSessionDataLayerExpander(): SessionDataLayerExpanderInterface
+    public function createDataLayerExpander(): DataLayerExpanderInterface
     {
-        return new SessionDataLayerExpander($this->getSessionClient());
+        return new DataLayerExpander($this->getSessionClient());
     }
 
     /**
