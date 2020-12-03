@@ -2,7 +2,9 @@
 
 namespace FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Plugin\DataLayer;
 
+use FondOfSpryker\Shared\GoogleTagManagerSessionConnector\GoogleTagManagerSessionConnectorConstants;
 use FondOfSpryker\Yves\GoogleTagManagerExtension\Dependency\GoogleTagManagerDataLayerExpanderPluginInterface;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Yves\Kernel\AbstractPlugin;
 
 /**
@@ -18,7 +20,8 @@ class SessionDataLayerExpanderPlugin extends AbstractPlugin implements GoogleTag
      */
     public function isApplicable(string $pageType, array $twigVariableBag = []): bool
     {
-        return true;
+        return isset($twigVariableBag[GoogleTagManagerSessionConnectorConstants::PARAMETER_QUOTE])
+            && $twigVariableBag[GoogleTagManagerSessionConnectorConstants::PARAMETER_QUOTE] instanceof QuoteTransfer;
     }
 
     /**
