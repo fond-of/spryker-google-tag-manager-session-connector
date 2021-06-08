@@ -46,7 +46,7 @@ class SessionDataLayerExpanderPluginExpanderPluginTest extends Unit
      */
     public function testIsApplicable(): void
     {
-        $this->assertIsBool($this->plugin->isApplicable('pageType', []));
+        static::assertIsBool($this->plugin->isApplicable('pageType', []));
     }
 
     /**
@@ -56,6 +56,6 @@ class SessionDataLayerExpanderPluginExpanderPluginTest extends Unit
     {
         $result = $this->plugin->expand('pageType', [], []);
 
-        $this->arrayHasKey(GoogleTagManagerSessionConnectorConstants::FIELD_TRANSACTION_ID, $result);
+        static::assertArrayHasKey(GoogleTagManagerSessionConnectorConstants::FIELD_TRANSACTION_ID, $result);
     }
 }

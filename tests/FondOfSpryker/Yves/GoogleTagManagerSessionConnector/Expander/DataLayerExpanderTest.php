@@ -2,7 +2,6 @@
 
 namespace FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Expander;
 
-
 use Codeception\Test\Unit;
 use FondOfSpryker\Shared\GoogleTagManagerSessionConnector\GoogleTagManagerSessionConnectorConstants;
 use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Dependency\GoogleTagManagerSessionConnectorToSessionClientInterface;
@@ -10,7 +9,7 @@ use FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Dependency\GoogleTagMana
 class DataLayerExpanderTest extends Unit
 {
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject|GoogleTagManagerSessionConnectorToSessionClientInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|\FondOfSpryker\Yves\GoogleTagManagerSessionConnector\Dependency\GoogleTagManagerSessionConnectorToSessionClientInterface
      */
     protected $sessionClientMock;
 
@@ -38,6 +37,6 @@ class DataLayerExpanderTest extends Unit
     {
         $result = $this->expander->expand('pageType', [], []);
 
-        $this->arrayHasKey(GoogleTagManagerSessionConnectorConstants::FIELD_TRANSACTION_ID, $result);
+        static::assertArrayHasKey(GoogleTagManagerSessionConnectorConstants::FIELD_TRANSACTION_ID, $result);
     }
 }
